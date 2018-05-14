@@ -12,9 +12,19 @@
 */
 
 
+
+Route::get('/', function(){
+    return view('auth/login');
+});
+
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::resource('/hoteles','HotelController');
+Route::resource('/comentarios','ComentarioController');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/welcome', function(){
+    return view('welcome');
+});
 
