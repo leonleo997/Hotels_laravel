@@ -3,7 +3,7 @@
     
     @if (empty($comentarios)==false)
     <div class="container">
-            <div class="jumbotron text-left" style="background: rgba(0, 0, 0, 0.5)">
+            <div class="jumbotron text-left" style="background: rgba(255, 255, 255, 0.8)">
                     <h1>Comentarios</h1>
                     <h4>En esta sección encontraras todos los comentarios</h4>
                 </div>

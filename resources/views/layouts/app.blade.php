@@ -33,7 +33,7 @@ background-size:16px 16px;
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel" style="background: rgba(255, 255, 255, 0.7);">
             <div class="container">
                 <div class="row"><a class="navbar-brand" href="{{ url('hoteles') }}">
-                        Where Is My Hotel!
+                        Inicio
                     </a></div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
