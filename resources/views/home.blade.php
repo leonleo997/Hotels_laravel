@@ -16,7 +16,7 @@
                         @yield('infotema')
                     </div>
                     <div class="row">
-                        <a class="btn btn-block btn-primary" href="{{route('hoteles.index')}}">Crear hoteles</a>
+                        <a class="btn btn-block btn-primary" href="{{view('hoteles/create')}}">Crear hoteles</a>
                     </div>
                   </div>
             </div>
