@@ -15,6 +15,9 @@
                     <div class="panel-body">
                         @yield('infotema')
                     </div>
+                    <div class="row">
+                        <a class="btn btn-block btn-primary" href="{{href('hoteles/create')}}">Crear hoteles</a>
+                    </div>
                   </div>
             </div>
        </div>
