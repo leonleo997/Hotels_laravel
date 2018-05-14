@@ -1,6 +1,20 @@
 @extends('home')
 @section('infotema')
     
+{!! Form::open(['route' => 'hoteles.index','method'=>'GET']) !!}
+    <div class="container-fuid">
+            <div class="row text-center">
+                    <div class="col-md-8 offset-1">            
+                        {!! Form::text('title', null, array('required', 'class'=>'form-control', 'placeholder'=>'Buscar por nombre o ciudad')) !!}
+                    </div>
+                    <div class="col-md-3">
+                        {!! Form::submit('Search', array('class'=>'btn btn-default')) !!}
+                    </div>
+                        
+                </div>
+    </div>
+    <br>
+{!! Form::close() !!}
 
     @foreach($hoteles as $hotel)
     <div class="card w-75 mb-3 mx-auto">

@@ -7,6 +7,8 @@
             <div class="container">
                 <div class="panel panel-default">
                     <div class="panel-title">
+                            <a class="btn btn-block btn-primary" href="{{url('hoteles/create')}}">Crear hotel</a>
+
                             <div class="jumbotron">
                                     <h1>Welcome</h1>
                                     <h2>¡Find your hotel!</h2>
@@ -15,9 +17,8 @@
                     <div class="panel-body">
                         @yield('infotema')
                     </div>
-                    <div class="row">
-                        <a class="btn btn-block btn-primary" href="{{route('hoteles.index')}}">Crear hoteles</a>
-                    </div>
+                    <br>
+                   
                   </div>
             </div>
        </div>

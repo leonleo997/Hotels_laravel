@@ -19,7 +19,7 @@ class Hotel extends Model
     }
 
     public function scopeSearch($query, $title){
-        return $query->where('name', 'LIKE','%$title%')->orwhere('city','LIKE','%$title%');
+        return $query->where('nombre', 'LIKE','%$title%')->orwhere('ciudad','LIKE','%$title%');
     }
 
    

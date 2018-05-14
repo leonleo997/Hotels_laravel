@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Hotel;
+use Couchbase\SearchQuery;
 
 
 class HotelController extends Controller
@@ -18,10 +19,20 @@ class HotelController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
 
         $hoteles = Hotel::All();
+        if(is_null($request->title)==false){
+            
+            $hoteles=$hoteles->filter(function($hotel) use ($request){
+                return str_contains(camel_case($hotel->nombre),camel_case($request->title)) || str_contains(camel_case($hotel->ciudad),camel_case($request->title));
+            });
+            
+            if($hoteles->isempty()){
+                $hoteles = Hotel::All();
+            }
+        }
         $hoteles = $hoteles -> map(function($hotel){
             $calificacion=0;
             $acumulado =0;
@@ -75,7 +86,7 @@ class HotelController extends Controller
             
         ]);
         Hotel::create($request->all());
-        return redirect()->route('home');
+        return view('home');
     }
 
     /**
@@ -123,5 +134,18 @@ class HotelController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function buscar(Request $request)
+    {
+        dd('entra');
+        // Gets the query string from our form submission 
+        $query = Request::input('search');
+        // Returns an array of articles that have the query string located somewhere within 
+        // our articles titles. Paginates them so we can break up lots of search results.
+        $hoteles = DB::table('hotels')->where('name', 'LIKE', '%' . $query . '%')->paginate(10);
+        dd($hoteles);
+         return view('hotel.mostrar', compact('hoteles'));
+   
     }
 }
